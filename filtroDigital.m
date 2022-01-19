@@ -1,0 +1,1 @@
+function [y] = filtro(x)   tam = length(x);    [N,Wc]=buttord(650/10000,900/10000,2,20)  [b,a]=butter(N,Wc);    y(1)= b(1)*x(1);  y(2)=-a(2)*y(1)+b(1)*x(2)+b(2)*x(1);  for k =3:tam    y(k)=-a(2)*y(k-1)-a(3)*y(k-2)+b(1)*x(k)+b(2)*x(k-1)+b(1)*x(k-2);  endfor   endfunction
